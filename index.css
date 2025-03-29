@@ -1,0 +1,265 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #c2e9fb 0%, #a1c4fd 100%);
+}
+
+.card {
+  width: 350px;
+  height: 500px;
+  perspective: 1500px;
+  position: relative;
+  margin: 20px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border-radius: 15px;
+}
+
+.card.open .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background-color: #ff9eb5;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.card-back {
+  background-color: #ffffff;
+  transform: rotateY(180deg);
+  color: #333;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #ff4081;
+}
+
+p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.card-front h2 {
+  font-size: 24px;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.instructions {
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 20px;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.balloon {
+  position: absolute;
+  width: 30px;
+  height: 40px;
+  background-color: #f8c3cd;
+  border-radius: 50%;
+  bottom: -100px;
+  animation: float 10s infinite;
+  opacity: 0.7;
+}
+
+.balloon::before {
+  content: '';
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.7);
+  bottom: -45px;
+  left: 15px;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-100vh) rotate(10deg); }
+  100% { transform: translateY(-200vh) rotate(-5deg); }
+}
+
+.cake {
+  margin-top: 20px;
+  position: relative;
+  width: 120px;
+  height: 80px;
+}
+
+.cake-base {
+  width: 100%;
+  height: 60px;
+  background-color: #f8c3cd;
+  border-radius: 10px 10px 5px 5px;
+  position: relative;
+}
+
+.cake-top {
+  width: 100%;
+  height: 20px;
+  background-color: #ffb6c1;
+  border-radius: 5px 5px 0 0;
+  position: absolute;
+  top: -20px;
+}
+
+.candle {
+  width: 8px;
+  height: 30px;
+  background-color: #ffd700;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.flame {
+  width: 12px;
+  height: 18px;
+  background: #ff7800;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: blur(1px);
+  animation: flicker 0.8s infinite alternate;
+  cursor: pointer;
+}
+
+@keyframes flicker {
+  0% { transform: translateX(-50%) scale(1); opacity: 0.9; }
+  100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
+}
+
+.gift-button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+  outline: none;
+}
+
+.gift-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #f8c3cd;
+  opacity: 0.7;
+}
+
+.message-area {
+  max-height: 250px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.date {
+  font-size: 14px;
+  margin-top: 25px;
+  color: #777;
+}
+
+/* Estilos para os controles de música */
+.music-controls {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+}
+
+.music-button {
+  padding: 8px 15px;
+  background-color: #a1c4fd;
+  color: #333;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.music-button:hover {
+  background-color: #87CEEB;
+  transform: translateY(-2px);
+}
+
+#stopMusic {
+  background-color: #f8c3cd;
+}
+
+#stopMusic:hover {
+  background-color: #ff9eb5;
+}
+
+/* Para esconder o elemento de áudio */
+audio {
+  display: none;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="./index.js" defer=""></script>
+    <link rel="stylesheet" href="./index.css">
+  </head>
+
+  <body>
+    <div id="confetti-container"></div>
+
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h1>Feliz Aniversário!</h1>
+          <h2>dona graça!</h2>
+          <div class="cake">
+            <div class="cake-top"></div>
+            <div class="cake-base"></div>
+            <div class="candle">
+              <div class="flame" id="flame"></div>
+            </div>
+          </div>
+          <p class="instructions">Clique no cartão para abrir</p>
+        </div>
+        <div class="card-back">
+          <h1>Parabéns!</h1>
+          <div class="message-area">
+            <p>Hoje é um dia muito especial porque você está comemorando mais um ano de vida!</p>
+            <p>Desejo a você muita saúde, alegria e que todos os seus sonhos se realizem.</p>
+            <p>Que este novo ciclo seja repleto de momentos inesquecíveis e conquistas!</p>
+          </div>
+          <button class="gift-button" id="giftButton">Abrir Presente</button>
+          <p class="date" id="currentDate"></p>
+          <div class="music-controls">
+            <button id="playMusic" class="music-button">🎵 Tocar Música</button>
+            <button id="stopMusic" class="music-button">🔇 Parar Música</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Elemento de áudio (invisível) -->
+    <audio id="birthdaySong" loop="">
+      <!-- Substitua pelo caminho do seu arquivo de música -->
+      <source src="audio/WhatsApp Audio 2025-03-29 at 19.11.17.ogg" type="audio/mpeg">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <script src="script.js"></script>
+
+  </body>
+
+</html>
